@@ -12,7 +12,7 @@ def getbook(request):
 def allbooks(request):
 	books = BookModel.objects.all()
 	for book in books:
-		print(book)
+		print(book.bookname)
 	return HttpResponse(str(len(books)))
 def addbook(request):
 	# Creating an entry
