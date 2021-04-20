@@ -2,6 +2,16 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from pappu.models import BookModel
 from . import book
+from rest_framework import viewsets
+
+from . import BookSerializer
+
+
+class BookViewSet(viewsets.ModelViewSet):
+    queryset = BookModel.objects.all().order_by('bookname')
+    serializer_class = BookSerializer
+
+
 
 def getbook(request):
 	book = BookModel.objects.get(id="2")
